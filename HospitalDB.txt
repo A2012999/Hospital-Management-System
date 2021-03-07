@@ -1,0 +1,105 @@
+create database  hospital;
+create database  hospital;
+use hospital;
+
+CREATE TABLE `appointment` (
+  `apid` int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(130) NOT NULL,
+  `contact` varchar(130) NOT NULL,
+  `age` int(11) NOT NULL,
+  `day` varchar(130) NOT NULL,
+  `speciality` varchar(130) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY  (`apid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `appointment` WRITE;
+INSERT INTO `appointment` VALUES (4,'Kishor Kadam','kadamk33@gmail.com','9404308673',28,'2018-06-22','Cardiology','heart problem',6),(5,'Sagar Kharmale','sagar@yahoomail.com','9404308673',29,'2018-06-23','Nerology','Cerebral Venous Sinus Thomboisis',1);
+UNLOCK TABLES;
+
+CREATE TABLE `department` (
+  `dept_id` int(11) NOT NULL auto_increment,
+  `dept_name` varchar(100) default NULL,
+  `dept_description` varchar(400) default NULL,
+  PRIMARY KEY  (`dept_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `department` WRITE;
+INSERT INTO `department` VALUES (5,'Nerology','brain,chest nerology solution'),(6,'Cardiology','angiography,angioplasty'),(7,'Cancer','blood cancer,stamoch cancer,bone cancer'),(8,'AIDS','Fever,blindness'),(9,'Arthopedic','Lungs'),(11,'General Physician','All types of disease'),(12,'Bone ','Osteoporosis is a debilitaring disease in which bones become fragile and are more likely to break'),(14,'Radiology','different types X-ray report');
+UNLOCK TABLES;
+
+CREATE TABLE `doctor` (
+  `doctor_id` int(11) NOT NULL auto_increment,
+  `doc_name` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  `password` varchar(100) default NULL,
+  `address` varchar(400) default NULL,
+  `phone` varchar(100) default NULL,
+  `department` varchar(100) default NULL,
+  PRIMARY KEY  (`doctor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `doctor` WRITE;
+INSERT INTO `doctor` VALUES (1,'Sunil Bandishti','sunilbandishti@yahoomail.com','sunil@12345','Dhole Patil Road,Near Ruby Hall,Pune.','9875796434','Nerology'),(6,'Parvej Grant','parvejgrant@gmail.com','abc@123','Ruby Hall,Pune','7875796412','Cardiac'),(7,'Vijay Patil','patilvijay78@gmail.com','patil@123','Ahmednagar','8845746525','Bone'),(8,'Bapu Kandekar','bapukandekar33@gmail.com','abc@123','Nagar Manmad Road,Ahmednagar','9856321478','Cardiology'),(9,'Girish Jadhav','jadhavgirish@gmail.com','kkk@12','Balikashram Road,Ahmednagar,Maharashtra,India','9420949414','Arthopedic'),(10,'Sundar Gore','gores@gmail.com','gore@123','Choupati karanja,Ahmednagar','7475767271','Radiology');
+UNLOCK TABLES;
+
+CREATE TABLE `feedback` (
+  `name` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  `contact` varchar(200) default NULL,
+  `suggestion` varchar(400) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `feedback` WRITE;
+INSERT INTO `feedback` VALUES ('Kishor Kadam','kadamk33@gmail.com','9404308673','Awesome website');
+UNLOCK TABLES;
+
+CREATE TABLE `nurse` (
+  `nurse_id` int(11) NOT NULL auto_increment,
+  `name` varchar(45) default NULL,
+  `email` varchar(100) default NULL,
+  `password` varchar(100) default NULL,
+  `address` varchar(400) default NULL,
+  `phone` varchar(100) default NULL,
+  PRIMARY KEY  (`nurse_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `nurse` WRITE;
+INSERT INTO `nurse` VALUES (3,'Deepika Nangare','deepikanangare@yahoomail.com','java@123','Kedgaon,Ahmednagar','7276763516'),(5,'Charulata Kadam','charu33@gmail.com','xxx@111','Bhalawani,Ahmednagar,Maharashtra,India','8855441199'),(6,'Kargi Patil','kargi333@gmail.com','kargi@999','Ruby Hall Pune','7475767271'),(7,'Pritam Kadam','pritam@yahoomail.com','pritam@1212','Bhalawani,Ahmednagar,Maharashtra,India','8812475685'),(8,'Sanika Kharmale','kharmales@gmail.com','sanika@8987','Malwadi,Pune','8387741568'),(9,'Pratibha Kadam','pratibhakadam@yahoomail.com','pratibha@000','Bhalawani,Ahmednagar,Maharashtra,India','8874563515'),(10,'Mayuri Patil','mayuripatil@rediffmail.com','mayuri@321','Hadapsar,Pune','7476968573');
+UNLOCK TABLES;
+
+CREATE TABLE `patient` (
+  `patient_id` int(11) NOT NULL auto_increment,
+  `patient_name` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  `password` varchar(100) default NULL,
+  `address` varchar(400) default NULL,
+  `phone` varchar(100) default NULL,
+  `sex` varchar(45) default NULL,
+  `birthdate` varchar(100) default NULL,
+  `age` int(11) default NULL,
+  `blood_group` varchar(45) default NULL,
+  PRIMARY KEY  (`patient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `patient` WRITE;
+INSERT INTO `patient` VALUES (1,'Kishor Kadam','kadamk329@yahoo.com','java@1991','Bhalawani,Ahmednagar,Maharashtra','9404308673','Male',NULL,28,'A+'),(3,'Sanket Sambhaji Kadam','kadamk33@gmail.com','pqr@123','Bhalawani,Ahmednagar','9404308673','Male',NULL,16,'AB+'),(4,'Rahul Narsale','narsale@gmail.com','rahul_123','Wakad,Pune','9865321475','Male','1996-06-15',22,'O+'),(5,'Sagar Kharmale','sagar@yahoomail.com','java@123','Malwadi,Pune','8855224467','Male','1988-06-30',29,'A-'),(6,'Govind Raut','rautgovind@rediffmail.com','xxx@000','Bhurate Wadi,Beed','9693857246','Male','1991-04-18',27,'AB-'),(7,'Akshay Jadhav','akshay88@gmail.com','kkk_123','Hinjewadi,Pune','8675731467','Male','1994-09-06',24,'O+');
+UNLOCK TABLES;
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL auto_increment,
+  `name` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  `address` varchar(400) default NULL,
+  `phone` varchar(200) default NULL,
+  `password` varchar(100) default NULL,
+  PRIMARY KEY  (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `user` WRITE;
+INSERT INTO `user` VALUES (1,'Kishor Kadam','kadamk329@yahoo.com','Bhalawani,Ahmednagar,Maharashtra,India','7276763516','java@1991'),(2,'Sanket Kadam','kadamk329@gmail.com','Bhalawani,Ahmednagar','9404308673','java@1992');
+UNLOCK TABLES;
+
+select * from user;
